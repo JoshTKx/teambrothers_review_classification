@@ -1,0 +1,331 @@
+{
+    "version": "3.0",
+    "creation_timestamp": "2025-08-30T23:32:24.735593",
+    "pipeline_info": {
+        "models_used": [
+            "mistralai/Mistral-7B-Instruct-v0.3",
+            "google/gemma-2-2b-it",
+            "meta-llama/Meta-Llama-3.1-8B-Instruct"
+        ],
+        "parallel_processing": true,
+        "quality_status": "POOR"
+    },
+    "ira_analysis": {
+        "fleiss_kappa": 0.4740148567100927,
+        "interpretation": "Moderate agreement",
+        "target_kappa": 0.75,
+        "valid_items_analyzed": 8000,
+        "retention_rate": 62.7
+    },
+    "categorical_features": {
+        "feature_names": [
+            "review_day_of_week",
+            "review_hour_of_day",
+            "dominant_topic"
+        ],
+        "feature_dim": 3,
+        "encoders": {
+            "review_day_of_week": {
+                "classes": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ],
+                "n_classes": 7
+            },
+            "review_hour_of_day": {
+                "classes": [
+                    "0",
+                    "1",
+                    "10",
+                    "11",
+                    "12",
+                    "13",
+                    "14",
+                    "15",
+                    "16",
+                    "17",
+                    "18",
+                    "19",
+                    "2",
+                    "20",
+                    "21",
+                    "22",
+                    "23",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9"
+                ],
+                "n_classes": 24
+            },
+            "dominant_topic": {
+                "classes": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ],
+                "n_classes": 5
+            }
+        }
+    },
+    "continuous_features": {
+        "feature_names": [
+            "sentiment_score",
+            "review_length_words",
+            "num_urls",
+            "num_emails",
+            "num_phone_numbers",
+            "num_mentions",
+            "num_hashtags",
+            "num_irrelevant_words",
+            "num_exclamations",
+            "num_questions",
+            "num_ellipsis",
+            "num_total_punctuation",
+            "all_caps_word_count",
+            "elongated_word_count",
+            "caps_ratio",
+            "unique_word_ratio",
+            "digit_ratio",
+            "punctuation_ratio",
+            "num_sentiment_words_pos",
+            "num_sentiment_words_neg",
+            "num_emojis",
+            "sentiment_polarity_lex",
+            "pos_words_per_100w",
+            "neg_words_per_100w",
+            "emojis_per_100w",
+            "user_review_count",
+            "num_same_day_reviews",
+            "avg_review_rating",
+            "user_max_7d_burst",
+            "user_review_span_days",
+            "user_burst_ratio",
+            "user_place_diversity",
+            "user_avg_length",
+            "user_text_share",
+            "user_response_rate",
+            "n_photos",
+            "photo_url_length_mean",
+            "photo_google_cdn_flag",
+            "photo_url_length_max",
+            "photo_url_length_std",
+            "photo_url_param_count_mean",
+            "photo_host_nunique",
+            "photo_has_multi_hosts",
+            "photo_has_thumbnail_param",
+            "photo_url_is_duplicate_any",
+            "has_photo_and_no_text",
+            "has_photo_and_short_text",
+            "has_photo_and_low_rating",
+            "has_photo_and_high_rating",
+            "n_photos_user_z",
+            "user_photo_host_diversity",
+            "user_avg_photo_url_len",
+            "user_median_n_photos",
+            "place_photo_host_diversity",
+            "place_median_n_photos"
+        ],
+        "feature_dim": 55,
+        "normalization_stats": {
+            "means": [
+                0.0,
+                14.32851445663011,
+                0.006231306081754736,
+                0.0,
+                0.0,
+                0.0002492522432701894,
+                0.0014955134596211367,
+                0.03788634097706879,
+                0.3462113659022931,
+                0.006480558325024925,
+                0.05284147557328016,
+                2.5398803589232304,
+                0.0,
+                0.00423728813559322,
+                0.0,
+                0.9531060012189349,
+                0.0012321159748758322,
+                0.037933791448896914,
+                1.1864406779661016,
+                0.0423728813559322,
+                0.016201395812562313,
+                1.1440677966101696,
+                15.271893104711745,
+                0.4476853474822762,
+                0.27227538265852197,
+                8.258723828514457,
+                1.996011964107677,
+                4.426208921323925,
+                3.073529411764706,
+                337.77492522432703,
+                0.5086989293417418,
+                8.204137587238286,
+                78.50072735366658,
+                1.0,
+                0.0,
+                0.18095712861415753,
+                4.786141575274177,
+                0.04935194416749751,
+                4.786141575274177,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.003489531405782652,
+                0.0002492522432701894,
+                0.04760717846460618,
+                0.0011436269116591822,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "stds": [
+                1.0,
+                18.949682927094802,
+                0.09047925094977156,
+                1.0,
+                1.0,
+                0.015785756763279177,
+                0.038642941129179445,
+                0.2119564634910304,
+                0.894498585817964,
+                0.08024064237542515,
+                0.27653208099451804,
+                3.2354675142143616,
+                1.0,
+                0.0722242514528876,
+                1.0,
+                0.07715480910406164,
+                0.014758753394801396,
+                0.06202546589033449,
+                1.013190961982985,
+                0.22703418021394184,
+                0.14636413474014448,
+                1.040880352234026,
+                18.58390284666717,
+                4.0358353966440745,
+                3.59919188160984,
+                8.803938503135939,
+                1.8153779926197646,
+                0.5530755962721511,
+                2.248036077837847,
+                380.5143439366573,
+                0.2812007348680176,
+                8.776353439210567,
+                68.92180541908927,
+                1.0,
+                1.0,
+                1.7147405854328341,
+                21.006019821984637,
+                0.2166017769418933,
+                21.006019821984637,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                0.05896909848684063,
+                0.015785756763279177,
+                0.2129336399520877,
+                0.40446724747058055,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "labels": {
+        "encoder_classes": [
+            "advertisement",
+            "irrelevant",
+            "rant_without_visit",
+            "relevant_and_quality"
+        ],
+        "num_classes": 4,
+        "class_names": [
+            "Spam/Advertisement",
+            "Irrelevant Content",
+            "Rant/Complaint (without visit)",
+            "Relevant and Quality"
+        ],
+        "label_distribution": {
+            "train": {
+                "relevant_and_quality": 3011,
+                "irrelevant": 984,
+                "rant_without_visit": 9,
+                "advertisement": 8
+            },
+            "val": {
+                "relevant_and_quality": 377,
+                "irrelevant": 123,
+                "advertisement": 1,
+                "rant_without_visit": 1
+            },
+            "test": {
+                "relevant_and_quality": 376,
+                "irrelevant": 123,
+                "rant_without_visit": 2,
+                "advertisement": 1
+            }
+        }
+    },
+    "dataset_stats": {
+        "original_samples": 8000,
+        "high_quality_samples": 5016,
+        "final_training_samples": 5016,
+        "train_samples": 4012,
+        "val_samples": 502,
+        "test_samples": 502,
+        "split_ratios": [
+            0.8,
+            0.1,
+            0.1
+        ]
+    },
+    "processing_stats": {
+        "mistralai/Mistral-7B-Instruct-v0.3": {
+            "processing_time": 3742.868143081665,
+            "valid_predictions": 7998,
+            "error_rate": 0.00025
+        },
+        "google/gemma-2-2b-it": {
+            "processing_time": 2516.7921509742737,
+            "valid_predictions": 8000,
+            "error_rate": 0.0
+        },
+        "meta-llama/Meta-Llama-3.1-8B-Instruct": {
+            "processing_time": 2715.9154646396637,
+            "valid_predictions": 8000,
+            "error_rate": 0.0
+        }
+    },
+    "text_processing": {
+        "max_length": 512,
+        "text_column": "review_text"
+    },
+    "quality_metrics": {
+        "consensus_method": "confidence_weighted",
+        "min_confidence_threshold": 0.6,
+        "disagreement_cases": 2984
+    }
+}

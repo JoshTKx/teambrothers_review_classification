@@ -1,0 +1,82 @@
+{
+  "total_cost": 1289.0,
+  "breakdown": [
+    {
+      "true": "Spam/Advertisement",
+      "pred": "Relevant and Quality",
+      "count": 1,
+      "unit_cost": 5.0,
+      "cost": 5.0
+    },
+    {
+      "true": "Irrelevant Content",
+      "pred": "Spam/Advertisement",
+      "count": 29,
+      "unit_cost": 1.0,
+      "cost": 29.0
+    },
+    {
+      "true": "Irrelevant Content",
+      "pred": "Irrelevant Content",
+      "count": 64,
+      "unit_cost": 0.0,
+      "cost": 0.0
+    },
+    {
+      "true": "Irrelevant Content",
+      "pred": "Rant/Complaint (without visit)",
+      "count": 4,
+      "unit_cost": 1.0,
+      "cost": 4.0
+    },
+    {
+      "true": "Irrelevant Content",
+      "pred": "Relevant and Quality",
+      "count": 26,
+      "unit_cost": 3.0,
+      "cost": 78.0
+    },
+    {
+      "true": "Rant/Complaint (without visit)",
+      "pred": "Spam/Advertisement",
+      "count": 1,
+      "unit_cost": 2.0,
+      "cost": 2.0
+    },
+    {
+      "true": "Rant/Complaint (without visit)",
+      "pred": "Rant/Complaint (without visit)",
+      "count": 1,
+      "unit_cost": 0.0,
+      "cost": 0.0
+    },
+    {
+      "true": "Relevant and Quality",
+      "pred": "Spam/Advertisement",
+      "count": 109,
+      "unit_cost": 8.0,
+      "cost": 872.0
+    },
+    {
+      "true": "Relevant and Quality",
+      "pred": "Irrelevant Content",
+      "count": 19,
+      "unit_cost": 5.0,
+      "cost": 95.0
+    },
+    {
+      "true": "Relevant and Quality",
+      "pred": "Rant/Complaint (without visit)",
+      "count": 34,
+      "unit_cost": 6.0,
+      "cost": 204.0
+    },
+    {
+      "true": "Relevant and Quality",
+      "pred": "Relevant and Quality",
+      "count": 214,
+      "unit_cost": 0.0,
+      "cost": 0.0
+    }
+  ]
+}

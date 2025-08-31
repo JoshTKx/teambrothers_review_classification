@@ -1,0 +1,65 @@
+================================================================================
+TIKTOK CONTENT CLASSIFICATION - MODEL EVALUATION REPORT
+================================================================================
+
+Evaluation Date: 2025-08-31 00:29:18
+Model Path: /content/drive/MyDrive/Tiktok_Hackaton/final_model_enhanced
+Test Samples: 502
+Classes: Spam/Advertisement, Irrelevant Content, Rant/Complaint (without visit), Relevant and Quality
+
+OVERALL PERFORMANCE METRICS
+----------------------------------------
+Accuracy:     0.5558
+Macro F1:     0.3410
+Weighted F1:  0.6720
+Macro Precision: 0.4212
+Macro Recall:    0.3974
+
+PER-CLASS DETAILED METRICS
+----------------------------------------
+Class                Precision  Recall     F1-Score   Support   
+------------------------------------------------------------
+Spam/Advertisement   0.0000     0.0000     0.0000     1         
+Irrelevant Content   0.7711     0.5203     0.6214     123       
+Rant/Complaint (without visit) 0.0256     0.5000     0.0488     2         
+Relevant and Quality 0.8880     0.5691     0.6937     376       
+
+CONFUSION MATRIX
+----------------------------------------
+                Spam/Adv Irreleva Rant/Com Relevant
+Spam/Advertisem        0        0        0        1
+Irrelevant Cont       29       64        4       26
+Rant/Complaint         1        0        1        0
+Relevant and Qu      109       19       34      214
+
+MODEL CONFIDENCE ANALYSIS
+----------------------------------------
+Mean Confidence: 0.3772
+Median Confidence: 0.3514
+Std Confidence: 0.1087
+Min Confidence: 0.2556
+Max Confidence: 0.9999
+
+Low Confidence Predictions (< 0.7):
+Count: 483 (96.2%)
+
+BUSINESS IMPACT ANALYSIS
+----------------------------------------
+Total Misclassification Cost: 1289.00
+Average Cost per Sample: 2.5677
+
+Cost Breakdown by Error Type:
+  Relevant and Quality → Spam/Advertisement: 109 cases, cost = 872.00
+  Relevant and Quality → Rant/Complaint (without visit): 34 cases, cost = 204.00
+  Relevant and Quality → Irrelevant Content: 19 cases, cost = 95.00
+  Irrelevant Content → Relevant and Quality: 26 cases, cost = 78.00
+  Irrelevant Content → Spam/Advertisement: 29 cases, cost = 29.00
+  Spam/Advertisement → Relevant and Quality: 1 cases, cost = 5.00
+  Irrelevant Content → Rant/Complaint (without visit): 4 cases, cost = 4.00
+  Rant/Complaint (without visit) → Spam/Advertisement: 1 cases, cost = 2.00
+  Irrelevant Content → Irrelevant Content: 64 cases, cost = 0.00
+  Rant/Complaint (without visit) → Rant/Complaint (without visit): 1 cases, cost = 0.00
+
+
+REPORT GENERATED: 2025-08-31 00:29:18
+================================================================================

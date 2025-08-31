@@ -1,0 +1,531 @@
+{
+  "config": {
+    "model_name": "distilbert-base-uncased",
+    "max_length": 512,
+    "num_labels": 4,
+    "batch_size": 16,
+    "num_epochs": 1,
+    "learning_rate": 2e-05,
+    "base_path": "/content/drive/MyDrive/Tiktok_Hackaton/",
+    "use_mock_data": false,
+    "early_stopping": {
+      "enabled": true,
+      "patience": 3,
+      "min_delta": 0.001,
+      "metric_for_best_model": "eval_f1",
+      "greater_is_better": true
+    },
+    "learning_rate_scheduler": {
+      "enabled": true,
+      "scheduler_type": "cosine_with_restarts",
+      "warmup_ratio": 0.1,
+      "num_cycles": 1
+    },
+    "gradient_clipping": {
+      "enabled": true,
+      "max_grad_norm": 1.0
+    },
+    "mixed_precision": {
+      "enabled": true,
+      "fp16": true
+    },
+    "data_augmentation": {
+      "enabled": false,
+      "augmentation_probability": 0.1
+    },
+    "regularization": {
+      "weight_decay": 0.01,
+      "dropout_rate": 0.1,
+      "layer_wise_lr_decay": 0.9
+    },
+    "logging_and_saving": {
+      "logging_steps": 50,
+      "eval_steps": 100,
+      "save_steps": 500,
+      "save_total_limit": 3,
+      "load_best_model_at_end": true,
+      "logging_first_step": true
+    },
+    "mock_data": {
+      "num_samples": 1000,
+      "train_split": 0.7,
+      "val_split": 0.15,
+      "test_split": 0.15,
+      "random_seed": 42
+    },
+    "categorical_vocab_sizes": [
+      5,
+      7,
+      24,
+      10
+    ],
+    "lora_config": {
+      "r": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.05
+    }
+  },
+  "feature_metadata": {
+    "version": "3.0",
+    "creation_timestamp": "2025-08-30T08:16:52.476006",
+    "pipeline_info": {
+      "models_used": [
+        "google/gemma-2-2b-it",
+        "Qwen/Qwen2-1.5B-Instruct",
+        "meta-llama/Meta-Llama-3.1-8B-Instruct"
+      ],
+      "parallel_processing": true,
+      "quality_status": "POOR"
+    },
+    "ira_analysis": {
+      "fleiss_kappa": 0.499529778099505,
+      "interpretation": "Moderate agreement",
+      "target_kappa": 0.75,
+      "valid_items_analyzed": 8000,
+      "retention_rate": 78.25
+    },
+    "categorical_features": {
+      "feature_names": [
+        "review_day_of_week",
+        "review_hour_of_day",
+        "dominant_topic"
+      ],
+      "feature_dim": 3,
+      "encoders": {
+        "review_day_of_week": {
+          "classes": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "n_classes": 7
+        },
+        "review_hour_of_day": {
+          "classes": [
+            "0",
+            "1",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "2",
+            "20",
+            "21",
+            "22",
+            "23",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "n_classes": 24
+        },
+        "dominant_topic": {
+          "classes": [
+            "0",
+            "1",
+            "2"
+          ],
+          "n_classes": 3
+        }
+      }
+    },
+    "continuous_features": {
+      "feature_names": [
+        "sentiment_score",
+        "review_length_words",
+        "num_urls",
+        "num_emails",
+        "num_phone_numbers",
+        "num_mentions",
+        "num_hashtags",
+        "num_irrelevant_words",
+        "num_exclamations",
+        "num_questions",
+        "num_ellipsis",
+        "num_total_punctuation",
+        "all_caps_word_count",
+        "elongated_word_count",
+        "caps_ratio",
+        "unique_word_ratio",
+        "digit_ratio",
+        "punctuation_ratio",
+        "num_sentiment_words_pos",
+        "num_sentiment_words_neg",
+        "num_emojis",
+        "sentiment_polarity_lex",
+        "pos_words_per_100w",
+        "neg_words_per_100w",
+        "emojis_per_100w",
+        "user_review_count",
+        "num_same_day_reviews",
+        "avg_review_rating",
+        "user_max_7d_burst",
+        "user_review_span_days",
+        "user_burst_ratio",
+        "user_place_diversity",
+        "user_avg_length",
+        "user_text_share",
+        "user_response_rate",
+        "n_photos",
+        "photo_url_length_mean",
+        "photo_google_cdn_flag",
+        "photo_url_length_max",
+        "photo_url_length_std",
+        "photo_url_param_count_mean",
+        "photo_host_nunique",
+        "photo_has_multi_hosts",
+        "photo_has_thumbnail_param",
+        "photo_url_is_duplicate_any",
+        "has_photo_and_no_text",
+        "has_photo_and_short_text",
+        "has_photo_and_low_rating",
+        "has_photo_and_high_rating",
+        "n_photos_user_z",
+        "user_photo_host_diversity",
+        "user_avg_photo_url_len",
+        "user_median_n_photos",
+        "place_photo_host_diversity",
+        "place_median_n_photos"
+      ],
+      "feature_dim": 55,
+      "normalization_stats": {
+        "means": [
+          0.0,
+          19.99109995435874,
+          0.010269283432222729,
+          0.0,
+          0.0,
+          0.00022820629849383843,
+          0.0013692377909630307,
+          0.0463258785942492,
+          0.40780465540848926,
+          0.012551346417161114,
+          0.03765403925148334,
+          3.373801916932907,
+          0.0,
+          0.004564125969876769,
+          0.0,
+          0.9398440360393772,
+          0.0010729710330571551,
+          0.03386496602290965,
+          1.2948425376540393,
+          0.04655408489274304,
+          0.01711547238703788,
+          1.2482884527612963,
+          13.407456280659565,
+          0.30619951194916994,
+          0.14486341863418592,
+          3.4853947968963945,
+          1.219078046554085,
+          4.484963995968741,
+          1.4892743039707896,
+          383.46394340483795,
+          0.5915348019574534,
+          3.4778639890460976,
+          114.51369145359165,
+          1.0,
+          0.0,
+          0.19374714742126883,
+          5.333637608397992,
+          0.054997717937015064,
+          5.333637608397992,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0013692377909630307,
+          0.00022820629849383843,
+          0.053856686444545866,
+          -0.0023603072835775107,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stds": [
+          1.0,
+          26.778750392653077,
+          0.19377456249278957,
+          1.0,
+          1.0,
+          0.015104774754334013,
+          0.04270568552104633,
+          0.23383173714754088,
+          0.9270828845130122,
+          0.14670399469691026,
+          0.23923041621199473,
+          4.332266519375598,
+          1.0,
+          0.07070860853528049,
+          1.0,
+          0.08467367487962747,
+          0.005908036044757295,
+          0.037622102003305666,
+          1.098842119254071,
+          0.2390948656667417,
+          0.18235511093348272,
+          1.1268133783543994,
+          14.637761265262975,
+          2.8486107664601015,
+          2.5778496188698106,
+          2.962821708330427,
+          0.6109612397997699,
+          0.624426394924069,
+          0.8770875069322702,
+          456.73492212927704,
+          0.3089957904528271,
+          2.957841337550675,
+          122.96552751726274,
+          1.0,
+          1.0,
+          1.5516741059989367,
+          22.108948840992205,
+          0.22797580783656757,
+          22.108948840992205,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.03697787147517863,
+          0.015104774754334015,
+          0.22573467560337232,
+          0.2852658490647672,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "labels": {
+      "encoder_classes": [
+        "advertisement",
+        "irrelevant",
+        "rant_without_visit",
+        "relevant_and_quality"
+      ],
+      "num_classes": 4,
+      "class_names": [
+        "Spam/Advertisement",
+        "Irrelevant Content",
+        "Rant/Complaint (without visit)",
+        "Relevant and Quality"
+      ],
+      "label_distribution": {
+        "train": {
+          "relevant_and_quality": 4137,
+          "irrelevant": 170,
+          "rant_without_visit": 57,
+          "advertisement": 18
+        },
+        "val": {
+          "relevant_and_quality": 887,
+          "irrelevant": 36,
+          "rant_without_visit": 12,
+          "advertisement": 4
+        },
+        "test": {
+          "relevant_and_quality": 886,
+          "irrelevant": 37,
+          "rant_without_visit": 12,
+          "advertisement": 4
+        }
+      }
+    },
+    "dataset_stats": {
+      "original_samples": 8000,
+      "high_quality_samples": 6260,
+      "final_training_samples": 6260,
+      "train_samples": 4382,
+      "val_samples": 939,
+      "test_samples": 939,
+      "split_ratios": [
+        0.7,
+        0.15,
+        0.15
+      ]
+    },
+    "processing_stats": {
+      "google/gemma-2-2b-it": {
+        "processing_time": 2614.491479873657,
+        "valid_predictions": 8000,
+        "error_rate": 0.0
+      },
+      "Qwen/Qwen2-1.5B-Instruct": {
+        "processing_time": 951.9593913555145,
+        "valid_predictions": 8000,
+        "error_rate": 0.0
+      },
+      "meta-llama/Meta-Llama-3.1-8B-Instruct": {
+        "processing_time": 2873.037806034088,
+        "valid_predictions": 8000,
+        "error_rate": 0.0
+      }
+    },
+    "text_processing": {
+      "max_length": 512,
+      "text_column": "review_text"
+    },
+    "quality_metrics": {
+      "consensus_method": "confidence_weighted",
+      "min_confidence_threshold": 0.6,
+      "disagreement_cases": 1740
+    }
+  },
+  "categorical_vocab_sizes": [
+    7,
+    24,
+    3
+  ],
+  "model_architecture": {
+    "total_parameters": 69010448,
+    "trainable_parameters": 2647568,
+    "model_type": "HybridClassificationModel",
+    "base_model": "distilbert-base-uncased"
+  },
+  "training_info": {
+    "training_time": "0:01:10.492524",
+    "best_checkpoint": null,
+    "total_train_steps": 274,
+    "num_epochs_completed": 1.0,
+    "early_stopped": true
+  },
+  "training_history": [
+    {
+      "loss": 1.507,
+      "grad_norm": 12.974895477294922,
+      "learning_rate": 0.0,
+      "epoch": 0.0036496350364963502,
+      "step": 1
+    },
+    {
+      "loss": 1.1292,
+      "grad_norm": 5.646541118621826,
+      "learning_rate": 1.9675587738486935e-05,
+      "epoch": 0.18248175182481752,
+      "step": 50
+    },
+    {
+      "loss": 0.5283,
+      "grad_norm": 0.7670682668685913,
+      "learning_rate": 1.6263383698932307e-05,
+      "epoch": 0.36496350364963503,
+      "step": 100
+    },
+    {
+      "eval_loss": 0.5090023875236511,
+      "eval_accuracy": 0.9456869009584664,
+      "eval_f1": 0.9202966439677018,
+      "eval_f1_macro": 0.2565272121436505,
+      "eval_precision": 0.9316005549613866,
+      "eval_precision_macro": 0.48640724946695096,
+      "eval_recall": 0.9456869009584664,
+      "eval_recall_macro": 0.2569444444444444,
+      "eval_f1_class_0": 0.0,
+      "eval_f1_class_1": 0.05405405405405406,
+      "eval_f1_class_2": 0.0,
+      "eval_f1_class_3": 0.972054794520548,
+      "eval_precision_class_0": 0.0,
+      "eval_precision_class_1": 1.0,
+      "eval_precision_class_2": 0.0,
+      "eval_precision_class_3": 0.9456289978678039,
+      "eval_recall_class_0": 0.0,
+      "eval_recall_class_1": 0.027777777777777776,
+      "eval_recall_class_2": 0.0,
+      "eval_recall_class_3": 1.0,
+      "eval_runtime": 4.9474,
+      "eval_samples_per_second": 189.797,
+      "eval_steps_per_second": 11.925,
+      "epoch": 0.36496350364963503,
+      "step": 100
+    },
+    {
+      "loss": 0.5213,
+      "grad_norm": 6.62513542175293,
+      "learning_rate": 1.0383027336900356e-05,
+      "epoch": 0.5474452554744526,
+      "step": 150
+    },
+    {
+      "loss": 0.5107,
+      "grad_norm": 3.212294816970825,
+      "learning_rate": 4.351735018110066e-06,
+      "epoch": 0.7299270072992701,
+      "step": 200
+    },
+    {
+      "eval_loss": 0.49616777896881104,
+      "eval_accuracy": 0.9456869009584664,
+      "eval_f1": 0.9202966439677018,
+      "eval_f1_macro": 0.2565272121436505,
+      "eval_precision": 0.9316005549613866,
+      "eval_precision_macro": 0.48640724946695096,
+      "eval_recall": 0.9456869009584664,
+      "eval_recall_macro": 0.2569444444444444,
+      "eval_f1_class_0": 0.0,
+      "eval_f1_class_1": 0.05405405405405406,
+      "eval_f1_class_2": 0.0,
+      "eval_f1_class_3": 0.972054794520548,
+      "eval_precision_class_0": 0.0,
+      "eval_precision_class_1": 1.0,
+      "eval_precision_class_2": 0.0,
+      "eval_precision_class_3": 0.9456289978678039,
+      "eval_recall_class_0": 0.0,
+      "eval_recall_class_1": 0.027777777777777776,
+      "eval_recall_class_2": 0.0,
+      "eval_recall_class_3": 1.0,
+      "eval_runtime": 4.978,
+      "eval_samples_per_second": 188.632,
+      "eval_steps_per_second": 11.852,
+      "epoch": 0.7299270072992701,
+      "step": 200
+    },
+    {
+      "loss": 0.5365,
+      "grad_norm": 2.4152729511260986,
+      "learning_rate": 5.462010119384665e-07,
+      "epoch": 0.9124087591240876,
+      "step": 250
+    },
+    {
+      "train_runtime": 69.1231,
+      "train_samples_per_second": 63.394,
+      "train_steps_per_second": 3.964,
+      "total_flos": 0.0,
+      "train_loss": 0.6349207811111951,
+      "epoch": 1.0,
+      "step": 274
+    }
+  ],
+  "final_metrics": {
+    "train_runtime": 69.1231,
+    "train_samples_per_second": 63.394,
+    "train_steps_per_second": 3.964,
+    "total_flos": 0.0,
+    "train_loss": 0.6349207811111951,
+    "epoch": 1.0,
+    "step": 274
+  }
+}
